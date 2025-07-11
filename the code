@@ -19,6 +19,7 @@ From: debian:bookworm
 
 apptainer build --sandbox my_sandbox mycontainer.def
 
+
 apptainer shell --writable my_sandbox
 
 python3 --version
@@ -28,3 +29,8 @@ apt-get install -y jupyter-core jupyter-notebook
 
 
 exit 
+
+pip install numpy pandas matplotlib seaborn --break-system-packages
+
+
+
