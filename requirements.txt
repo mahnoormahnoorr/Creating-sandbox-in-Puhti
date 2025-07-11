@@ -1,0 +1,11 @@
+If you use `pip`, add this file:
+
+```txt
+numpy
+pandas
+matplotlib
+seaborn
+
+Inside the sandbox, install with:
+
+pip install -r /home/requirements.txt
