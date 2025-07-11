@@ -1,0 +1,11 @@
+This step "freezes" your sandbox into a compressed, portable image.
+
+apptainer build my_container.sif my_sandbox
+This may take a few minutes depending on size.
+
+Afterward, you can:
+
+Run it:
+apptainer run my_container.sif
+Enter it:
+apptainer shell my_container.sif
