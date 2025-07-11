@@ -1,0 +1,15 @@
+run this code in bash:
+
+one file:
+cp /path/to/your/folder/xyz.py path/to/your/sandbox 
+
+whole folder:
+cd -r /path/to/your/folder /path/to/your/sandbox 
+
+verify if it is copied: 
+
+apptainer shell --writable my_sandbox
+cd /home
+ls
+
+
