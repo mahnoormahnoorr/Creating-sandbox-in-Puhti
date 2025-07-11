@@ -1,0 +1,30 @@
+mkdir -p $HOME/mycontainer && cd $HOME/mycontainer
+
+nano mycontainer.def
+
+Paste the following minimal definition (a Debian base with Python):
+
+Bootstrap: docker
+From: debian:bookworm
+
+%post
+    apt-get update && apt-get install -y python3 python3-pip
+
+%environment
+    export PATH=/usr/bin:$PATH
+
+%runscript
+    echo "This is my custom container"
+    exec /bin/bash
+
+apptainer build --sandbox my_sandbox mycontainer.def
+
+apptainer shell --writable my_sandbox
+
+python3 --version
+
+
+apt-get install -y jupyter-core jupyter-notebook
+
+
+exit 
