@@ -1,0 +1,50 @@
+You want to:
+
+Create a writable sandbox container
+Install tools like lynx, wget, etc.
+Without needing actual root privileges
+Use it for safe browsing/testing inside an isolated environment
+
+to check if thw fakeroot is supported:
+singularity build --help | grep fakeroot
+
+singularity build --sandbox output.sif xyz.def 
+
+singularity build --sandbox web_sandbox docker://ubuntu:22.04
+
+singularity shell --writable --fakeroot web_sandbox
+
+apt update && apt install -y wget curl lynx
+
+wget https://example.com
+lynx https://example.com
+
+
+proot=
+
+if not already installed, isntall it via conda: 
+conda install -c conda-forge proot
+
+
+or
+
+curl -LO https://proot.gitlab.io/proot/bin/proot
+chmod +x proot
+./proot --version
+
+
+
+mkdir ubuntu_rootfs
+cd ubuntu_rootfs
+curl -L https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-amd64-root.tar.gz | tar xz
+cd ..
+
+
+
+./proot -R ubuntu_rootfs -0 -b /dev -b /proc -b /sys /bin/bash
+
+
+apt update
+apt install -y wget lynx curl nano
+
+
