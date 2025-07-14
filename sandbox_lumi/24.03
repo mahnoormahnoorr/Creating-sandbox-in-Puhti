@@ -13,3 +13,7 @@ apt-get install -y wget curl lynx
 
 sinsularity exec output.sif /bin/bash
 
+lynx https://csc.fi/en/
+
+
+
