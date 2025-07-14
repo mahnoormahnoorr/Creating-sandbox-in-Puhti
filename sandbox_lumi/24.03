@@ -11,3 +11,5 @@ From: ubuntu:22.04
 apt-get update
 apt-get install -y wget curl lynx
 
+sinsularity exec output.sif /bin/bash
+
